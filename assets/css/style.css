@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #c4c4c4;
+  font-family: 'Source Code Pro', monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+h1 {
+  color: #800080;
+  font-weight: 700;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.quiz__box {
+  max-width: 1200px;
+  min-width: 300px;
+  background: #f2f2f2;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.quiz__header {
+  padding: 15px 0;
+}
+
+.quiz__progress {
+  padding: 10px 15px;
+  font-size: 18px;
+}
+
+.quiz__question {
+  text-align: center;
+  font-size: 25px;
+  padding: 15px;
+}
+
+.quiz__options {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.quiz__btn {
+  font-size: 20px;
+  margin: 5px 0;
+  padding: 10px 14px;
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1.5px solid #800080;  
+}
+
+.quiz__btn:hover {
+  background-color: #80008034;
+}
+
+.quiz__btn:active {
+  background-color: #800080;
+  color: #fff;
+}
+
+.quiz__footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.quiz__result {
+  padding: 0 15px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.credit {
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 16px;
+}
+
+.credit a {
+  font-weight: 700;
+  font-size: 18px;
+  color: #800080;
+  text-decoration: none;
+}
