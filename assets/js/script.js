@@ -42,18 +42,24 @@ const quizQuestion = [
   },
 ];
 
+// Constants and vaviables to make the code easier to read
 const question = document.getElementById('quiz__question');
 const a_option = document.getElementById('a__option');
 const b_option = document.getElementById('b__option');
 const c_option = document.getElementById('c__option');
 const d_option = document.getElementById('d__option');
+const buttons = document.getElementsByTagName('button');
 
 let currentQuestion = 0;
 let correctAnswer = 0;
 let incorrectAnswer = 0;
 
-loadQuiz();
+document.addEventListener('DOMContentLoaded', loadQuiz());
 
+
+/**
+ * Get data from the quizQuestion constant and add to the game
+ */
 function loadQuiz() {
   
   const currentQuestionData = quizQuestion[currentQuestion];
@@ -63,4 +69,24 @@ function loadQuiz() {
   b_option.innerText = currentQuestionData.b;
   c_option.innerText = currentQuestionData.c;
   d_option.innerText = currentQuestionData.d;
+
+  checkAnswer();
+
 }
+
+function checkAnswer() {
+  for (let button of buttons) {
+    button.addEventListener('click', function () {
+      let answer = this.getAttribute('id');
+      console.log(answer);
+
+      if (answer === quizQuestion[currentQuestion].correct) {
+        console.log('correct');
+      } else {
+        console.log('wrong choice');
+      }
+
+    });    
+  }
+}
+
