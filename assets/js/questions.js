@@ -1,3 +1,5 @@
+
+
 // Questions for the game
 const quizQuestion = [
   {
@@ -41,3 +43,4 @@ const quizQuestion = [
     correct: 'd',
   },
 ];
+
