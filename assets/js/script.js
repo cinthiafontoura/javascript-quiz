@@ -86,12 +86,12 @@ function checkAnswer() {
 
       if (answer === quizQuestion[currentQuestion].correct) {
         console.log('correct');
-        correctAnswer++;
+        document.getElementById('right-answer').innerText = ++correctAnswer;
         nextQuestion();
                 
       } else {
         console.log('wrong choice');
-        incorrectAnswer++;
+        document.getElementById('wrong-answer').innerText = ++incorrectAnswer;
         nextQuestion();
       }      
     });        
