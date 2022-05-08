@@ -42,14 +42,7 @@ const quizQuestion = [
   },
 ];
 
-// Constants and vaviables to make the code easier to read
 const quiz = document.getElementById('quiz');
-const question = document.getElementById('quiz__question');
-const a_option = document.getElementById('a__option');
-const b_option = document.getElementById('b__option');
-const c_option = document.getElementById('c__option');
-const d_option = document.getElementById('d__option');
-const buttons = document.getElementsByTagName('button');
 
 let currentQuestion = 0;
 let correctAnswer = 0;
@@ -57,9 +50,8 @@ let incorrectAnswer = 0;
 
 document.addEventListener('DOMContentLoaded', loadQuiz());
 
-
 /**
- * Get data from the quizQuestion constant and add to the game
+ * Get data from the quizQuestion constant and add to the DOM
  */
 function loadQuiz() {
 
@@ -68,17 +60,22 @@ function loadQuiz() {
   
   const currentQuestionData = quizQuestion[currentQuestion];
 
-  question.innerText = currentQuestionData.question;
-  a_option.innerText = currentQuestionData.a;
-  b_option.innerText = currentQuestionData.b;
-  c_option.innerText = currentQuestionData.c;
-  d_option.innerText = currentQuestionData.d;    
-
+  document.getElementById('quiz__question').innerText = currentQuestionData.question;
+  document.getElementById('a__option').innerText = currentQuestionData.a;
+  document.getElementById('b__option').innerText = currentQuestionData.b;
+  document.getElementById('c__option').innerText = currentQuestionData.c;
+  document.getElementById('d__option').innerText = currentQuestionData.d;    
 }
 
 checkAnswer();
 
+/**
+ * Check if the answer is correct and atulize the score
+ */
 function checkAnswer() {
+
+  const buttons = document.getElementsByTagName('button');
+
   for (let button of buttons) {
     button.addEventListener('click', function () {
       let answer = this.getAttribute('id');
@@ -98,15 +95,21 @@ function checkAnswer() {
   }
 }
 
+/**
+ * Go to the next question and show the results at the end of the game with a option to play again
+ */
 function nextQuestion() {
+
   currentQuestion++;
+
   if (currentQuestion < quizQuestion.length) {
     loadQuiz();
+
   } else {
     quiz.innerHTML = `
     <h2>Congratulations!</h2>
     <h3> You answered ${correctAnswer}/${quizQuestion.length} questions correctly.</h3>
-    <button class="quiz__btn" onclick="location.reload()">Take the quiz again</button>
+    <button class="btn" onclick="location.reload()">Play again</button>
     `;
   }        
 }

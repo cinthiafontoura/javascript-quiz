@@ -1,4 +1,16 @@
+/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
+
+/* General configuration */
+
+:root {
+  /* Colors */
+  --color__background: #c4c4c4;
+  --color--light: #f2f2f2;
+  --color--dark: #1d1d1d;
+  --color__primary: #800080;
+  --color__primary--transparent: #80008034;
+}
 
 * {
   box-sizing: border-box;
@@ -7,7 +19,8 @@
 }
 
 body {
-  background-color: #c4c4c4;
+  background-color: var(--color__background);
+  color: var(--color--dark);
   font-family: 'Source Code Pro', monospace;
   display: flex;
   flex-direction: column;
@@ -19,21 +32,52 @@ body {
 }
 
 h1 {
-  color: #800080;
+  color: var(--color__primary);
   font-weight: 700;
   padding: 20px 0;
   text-align: center;
 }
 
-.quiz__box {
-  max-width: 900px;
-  min-width: 300px;
-  background: #f2f2f2;
-  padding: 10px 20px;
-  border-radius: 8px;
-  margin: 0 10px;
+/* Buttons */
+.btn {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 20px;
+  margin: 5px 0;
+  padding: 10px 14px;
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1.5px solid var(--color__primary);  
+  overflow-wrap: break-word;
 }
 
+.btn:hover {
+  background-color: var(--color__primary--transparent);
+}
+
+.btn:active {
+  background-color: var(--color__primary);
+  color: var(--color--light);
+}
+
+/* Quiz game box*/
+.quiz__box {
+  width: 900px;
+  background: var(--color--light);
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin: 0 10px;  
+  overflow: hidden;
+}
+
+/* Make the quiz fit all screen sizes */
+@media only screen and (max-width: 950px) {
+  .quiz__box {
+    width: 95vw;    
+  }  
+}
+
+/* Quiz header */
 .quiz__header {
   padding: 10px 0;
 }
@@ -44,7 +88,6 @@ h1 {
 }
 
 .quiz__question {
-  /* text-align: center; */
   font-size: 25px;
   padding: 15px 0;
 }
@@ -55,26 +98,7 @@ h1 {
   justify-content: flex-start;
 }
 
-.quiz__btn {
-  font-family: 'Source Code Pro', monospace;
-  font-size: 20px;
-  margin: 5px 0;
-  padding: 10px 14px;
-  text-align: left;
-  border-radius: 4px;
-  cursor: pointer;
-  border: 1.5px solid #800080;  
-}
-
-.quiz__btn:hover {
-  background-color: #80008034;
-}
-
-.quiz__btn:active {
-  background-color: #800080;
-  color: #fff;
-}
-
+/* Quiz footer */
 .quiz__footer {
   display: flex;
   justify-content: space-around;
@@ -90,6 +114,7 @@ h1 {
   padding: 5px 0;
 }
 
+/* Footer */
 .credit {
   text-align: center;
   padding: 20px 10px;
@@ -99,6 +124,6 @@ h1 {
 .credit a {
   font-weight: 700;
   font-size: 18px;
-  color: #800080;
+  color: var(--color__primary);
   text-decoration: none;
 }
