@@ -14,28 +14,39 @@
   </header>
   
   <main>
-    <div id="quiz" class="quiz__box">
-      <div class="quiz__header">
-        <p id="progress" class="quiz__progress">Question <span id="question_number">1</span> of <span id="total_question">1</span></p>
-        <h2 id="quiz__question" class="quiz__question">Am I a question?</h2>
+    <div class="quiz__box">
+      <div id="start">
+        <h2>Are you ready?</h2>
+        <label for="username">Insert your name</label>
+        <br>
+        <input type="text" id="username" placeholder="username">
+        
+        <button class="btn btn--full" type="submit" id="start-game">Start</button>
       </div>
-      <div class="quiz__options">
-        <button class="btn" id="a">
-        a. <span id="a__option">Option A</span>
-      </button>
-        <button class="btn" id="b">
-          b. <span id="b__option">Option B</span>
+
+      <div id="quiz">
+        <div class="quiz__header">
+          <p id="progress" class="quiz__progress">Question <span id="question_number">1</span> of <span id="total_question">1</span></p>
+          <h2 id="quiz__question" class="quiz__question">Am I a question?</h2>
+        </div>
+        <div class="quiz__options">
+          <button class="btn quiz__option" id="a">
+          a. <span id="a__option">Option A</span>
         </button>
-        <button class="btn" id="c">
-          c. <span id="c__option">Option C</span>
-        </button>
-        <button class="btn" id="d">
-          d. <span id="d__option">Option D</span>
-        </button>
-      </div>
-      <div class="quiz__footer">
-        <p class="quiz__result">Correct answers: <span id="right-answer">0</span></p>
-        <p class="quiz__result">Incorrect answers: <span id="wrong-answer">0</span></p>
+          <button class="btn quiz__option" id="b">
+            b. <span id="b__option">Option B</span>
+          </button>
+          <button class="btn quiz__option" id="c">
+            c. <span id="c__option">Option C</span>
+          </button>
+          <button class="btn quiz__option" id="d">
+            d. <span id="d__option">Option D</span>
+          </button>
+        </div>
+        <div class="quiz__footer">
+          <p class="quiz__result">Correct answers: <span id="right-answer">0</span></p>
+          <p class="quiz__result">Incorrect answers: <span id="wrong-answer">0</span></p>
+        </div>
       </div>
     </div>
   </main>

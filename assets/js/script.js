@@ -42,19 +42,22 @@ const quizQuestion = [
   },
 ];
 
-const quiz = document.getElementById('quiz');
-
 let currentQuestion = 0;
 let correctAnswer = 0;
 let incorrectAnswer = 0;
 
-document.addEventListener('DOMContentLoaded', loadQuiz());
+document.addEventListener('DOMContentLoaded', function () {
+  let start = document.getElementById('start-game');
+  start.addEventListener('click', loadQuiz);
+});  
 
 /**
  * Get data from the quizQuestion constant and add to the DOM
  */
 function loadQuiz() {
 
+  document.getElementById('quiz').style.display = "block"; // Show the game
+  document.getElementById('start').style.display = "none"; // Hide the starter content
   document.getElementById('question_number').innerText = currentQuestion + 1; // Show how many questions are left
   document.getElementById('total_question').innerText = quizQuestion.length; // Show how many questions the quiz have
   
@@ -74,10 +77,10 @@ checkAnswer();
  */
 function checkAnswer() {
 
-  const buttons = document.getElementsByTagName('button');
+  const options = document.getElementsByClassName(' quiz__option');
 
-  for (let button of buttons) {
-    button.addEventListener('click', function () {
+  for (let option of options) {
+    option.addEventListener('click', function () {
       let answer = this.getAttribute('id');
       console.log(answer);
 
@@ -106,10 +109,12 @@ function nextQuestion() {
     loadQuiz();
 
   } else {
+    let username = document.getElementById('username').value;
+
     quiz.innerHTML = `
-    <h2>Congratulations!</h2>
-    <h3> You answered ${correctAnswer}/${quizQuestion.length} questions correctly.</h3>
-    <button class="btn" onclick="location.reload()">Play again</button>
+    <h2>Congratulations ${username}!</h2>
+    <p style="margin: 15px 0;">You answered ${correctAnswer} of ${quizQuestion.length} questions correctly.</p>
+    <button class="btn btn--full" onclick="location.reload()">Play again</button>
     `;
   }        
 }
