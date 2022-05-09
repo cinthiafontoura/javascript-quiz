@@ -1,61 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <title>JavaScript Quiz</title>
-</head>
-<body>
-  <header>
-    <h1>JavaScript Quiz</h1>
-  </header>
-  
-  <main>
-    <div class="quiz__box">
-      <div id="start">
-        <h2>Are you ready?</h2>
-        <label for="username">Insert your name</label>
-        <br>
-        <input type="text" id="username" placeholder="username">
-        
-        <button class="btn btn--full" type="submit" id="start-game">Start</button>
-      </div>
-
-      <div id="quiz">
-        <div class="quiz__header">
-          <p id="progress" class="quiz__progress">Question <span id="question_number">1</span> of <span id="total_question">1</span></p>
-          <h2 id="quiz__question" class="quiz__question">Am I a question?</h2>
-        </div>
-        <div class="quiz__options">
-          <button class="btn quiz__option" id="a">
-          a. <span id="a__option">Option A</span>
-        </button>
-          <button class="btn quiz__option" id="b">
-            b. <span id="b__option">Option B</span>
-          </button>
-          <button class="btn quiz__option" id="c">
-            c. <span id="c__option">Option C</span>
-          </button>
-          <button class="btn quiz__option" id="d">
-            d. <span id="d__option">Option D</span>
-          </button>
-        </div>
-        <div class="quiz__footer">
-          <p class="quiz__result">Correct answers: <span id="right-answer">0</span></p>
-          <p class="quiz__result">Incorrect answers: <span id="wrong-answer">0</span></p>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    <p class="credit">Website made by <a href="http://cinthiafontoura.com" target="_blank" rel="noopener noreferrer">Cinthia Fontoura</a></p>
-  </footer>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>JavaScript Quiz</title>
+  </head>
+  <body>
+    <header>
+      <h1>JavaScript Quiz</h1>
+    </header>
     
-  <!-- JS scripts -->
-  <script src="assets/js/script.js"></script>
-</body>
+    <main>
+      <div class="quiz__box">
+        <!-- To get a username before start the game -->
+        <div id="start">
+          <h2>Are you ready?</h2>
+          <label for="username">Insert your name</label>
+          <br>
+          <input type="text" id="username" placeholder="username">          
+          <button class="btn btn--full" type="submit" id="start-game">Start</button>
+        </div>
+
+        <!-- Quiz game structure to be manipulate by JavaScript -->
+        <div id="quiz">
+          <div class="quiz__header">
+            <p id="progress" class="quiz__progress">Question <span id="question_number">1</span> of <span id="total_question">1</span></p>
+            <h2 id="quiz__question" class="quiz__question">Am I a question?</h2>
+          </div>
+          <div class="quiz__options">
+            <button class="btn quiz__option" id="a">
+            a. <span id="a__option">Option A</span>
+          </button>
+            <button class="btn quiz__option" id="b">
+              b. <span id="b__option">Option B</span>
+            </button>
+            <button class="btn quiz__option" id="c">
+              c. <span id="c__option">Option C</span>
+            </button>
+            <button class="btn quiz__option" id="d">
+              d. <span id="d__option">Option D</span>
+            </button>
+          </div>
+          <div class="quiz__footer">
+            <p class="quiz__result">Correct answers: <span id="right-answer">0</span></p>
+            <p class="quiz__result">Incorrect answers: <span id="wrong-answer">0</span></p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Credits -->
+    <footer>
+      <p class="credit">Website made by <a href="http://cinthiafontoura.com" target="_blank" rel="noopener noreferrer">Cinthia Fontoura</a></p>
+    </footer>
+      
+    <!-- JS scripts -->
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>

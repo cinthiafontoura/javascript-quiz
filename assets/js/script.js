@@ -46,6 +46,7 @@ let currentQuestion = 0;
 let correctAnswer = 0;
 let incorrectAnswer = 0;
 
+// Wait the content load before start the game
 document.addEventListener('DOMContentLoaded', function () {
   let start = document.getElementById('start-game');
   start.addEventListener('click', loadQuiz);
@@ -110,6 +111,7 @@ function nextQuestion() {
 
   } else {
     let username = document.getElementById('username').value;
+    let quiz = document.getElementById('quiz');
 
     quiz.innerHTML = `
     <h2>Congratulations ${username}!</h2>
