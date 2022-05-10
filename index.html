@@ -21,7 +21,7 @@
           <label for="username">Insert your name</label>
           <br>
           <input type="text" id="username" placeholder="username">          
-          <button class="btn btn--full" type="submit" id="start-game">Start</button>
+          <button class="btn btn--full" id="start-game">Start</button>
         </div>
 
         <!-- Quiz game structure to be manipulate by JavaScript -->
@@ -49,8 +49,21 @@
             <p class="quiz__result">Incorrect answers: <span id="wrong-answer">0</span></p>
           </div>
         </div>
+
+        <!-- Ranking -->
+        <div id="ranking-box">
+          <h2>Congratulations UserName}!</h2>
+          <p>You answered <span id="correct-answer"></span> of <span id="incorrect-answer"></span> questions correctly.</p>
+          <h3>Ranking</h3>
+          <ul class="ranking-list" id="ranking-list">
+          </ul>
+          <button id="play-again-friend" class="btn btn--full">New player</button>
+          <button id="play-again" class="btn btn--full">Play again</button>
+        </div>
       </div>
+
     </main>
+
     <!-- Credits -->
     <footer>
       <p class="credit">Website made by <a href="http://cinthiafontoura.com" target="_blank" rel="noopener noreferrer">Cinthia Fontoura</a></p>

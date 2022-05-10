@@ -36,9 +36,16 @@ body {
 
 h1 {
   color: var(--color__primary);
+  font-size: 50px;
   font-weight: 700;
   padding: 20px 0;
   text-align: center;
+}
+
+@media only screen and (max-width: 464px) {
+  h1 {
+    font-size: 33px;    
+  }  
 }
 
 /* Buttons */
@@ -148,6 +155,22 @@ input:hover {
   padding: 5px 0;
 }
 
+/* Ranking */
+.ranking-list {
+  margin: 20px;
+}
+
+.ranking-list li {
+  list-style: none;
+  padding: 10px;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  text-transform: lowercase;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
 /* Footer */
 .credit {
   text-align: center;
@@ -164,5 +187,9 @@ input:hover {
 
 /* Style manipulate by JavaScript */
 #quiz {
+  display: none;
+}
+
+#ranking-box {
   display: none;
 }

@@ -42,14 +42,16 @@ const quizQuestion = [
   },
 ];
 
+let start = document.getElementById('start');
+let quiz = document.getElementById('quiz');
 let currentQuestion = 0;
 let correctAnswer = 0;
 let incorrectAnswer = 0;
 
 // Wait the content load before start the game
 document.addEventListener('DOMContentLoaded', function () {
-  let start = document.getElementById('start-game');
-  start.addEventListener('click', loadQuiz);
+  let startBtn = document.getElementById('start-game');
+  startBtn.addEventListener('click', loadQuiz);
 });  
 
 /**
@@ -57,8 +59,9 @@ document.addEventListener('DOMContentLoaded', function () {
  */
 function loadQuiz() {
 
-  document.getElementById('quiz').style.display = "block"; // Show the game
-  document.getElementById('start').style.display = "none"; // Hide the starter content
+  start.style.display = "none"; // Hide the starter content
+  quiz.style.display = "block"; // Show the game
+  
   document.getElementById('question_number').innerText = currentQuestion + 1; // Show how many questions are left
   document.getElementById('total_question').innerText = quizQuestion.length; // Show how many questions the quiz have
   
@@ -109,14 +112,57 @@ function nextQuestion() {
   if (currentQuestion < quizQuestion.length) {
     loadQuiz();
 
-  } else {
-    let username = document.getElementById('username').value;
-    let quiz = document.getElementById('quiz');
-
-    quiz.innerHTML = `
-    <h2>Congratulations ${username}!</h2>
-    <p style="margin: 15px 0;">You answered ${correctAnswer} of ${quizQuestion.length} questions correctly.</p>
-    <button class="btn btn--full" onclick="location.reload()">Play again</button>
-    `;
+  } else {   
+    quiz.style.display = "none"; // Hide the quiz content     
+    displayRanking();    
   }        
+}
+
+/**
+ * Display results and ranking at the end of the game with a button to play again
+ */
+function displayRanking() {
+
+  const rankingBox = document.getElementById('ranking-box');
+  rankingBox.style.display = "block";
+
+  const playAgainBtn = document.getElementById('play-again');
+  playAgainBtn.addEventListener('click', playAgain);
+
+  const playAgainNewUserBtn = document.getElementById('play-again-friend');
+  playAgainNewUserBtn.addEventListener('click', playNewUser);
+
+  const username = document.getElementById('username').value;
+
+  const newUser = document.createElement('li');
+  newUser.innerHTML = username;
+  
+  const newScore = document.createElement('span');
+  newScore.innerHTML = correctAnswer;  
+
+  newUser.appendChild(newScore);
+
+  const ranking = document.getElementById('ranking-list');
+
+  ranking.appendChild(newUser);
+
+}
+
+function playNewUser() {
+  start.style.display = "block"; 
+  quiz.style.display = "none";
+
+  username.value = "";
+
+  currentQuestion = 0;
+  correctAnswer = 0;
+  incorrectAnswer = 0;
+}
+
+function playAgain() {
+  currentQuestion = 0;
+  correctAnswer = 0;
+  incorrectAnswer = 0;
+
+  loadQuiz();
 }
