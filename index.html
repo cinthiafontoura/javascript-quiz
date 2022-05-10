@@ -18,7 +18,7 @@
         <!-- To get a username before start the game -->
         <div id="start">
           <h2>Are you ready?</h2>
-          <label for="username">Insert your name</label>
+          <label for="username">Insert your name to start the game</label>
           <br>
           <input type="text" id="username" placeholder="username">          
           <button class="btn btn--full" id="start-game">Start</button>
@@ -51,9 +51,9 @@
         </div>
 
         <!-- Ranking -->
-        <div id="ranking-box">
-          <h2>Congratulations UserName}!</h2>
-          <p>You answered <span id="correct-answer"></span> of <span id="incorrect-answer"></span> questions correctly.</p>
+        <div class="ranking-box" id="ranking-box">
+          <h2 id="congrats">Congrats!</h2>
+          <p>You answered <span id="correct-answer">0</span> of <span id="total">0</span> questions correctly.</p>
           <h3>Ranking</h3>
           <ul class="ranking-list" id="ranking-list">
           </ul>

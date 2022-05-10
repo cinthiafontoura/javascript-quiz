@@ -42,9 +42,12 @@ const quizQuestion = [
   },
 ];
 
+const username = document.getElementById('username');
 const start = document.getElementById('start');
 const quiz = document.getElementById('quiz');
 const rankingBox = document.getElementById('ranking-box');
+const rightAnswer = document.getElementById('right-answer');
+const wrongAnswer = document.getElementById('wrong-answer');
 
 let currentQuestion = 0;
 let correctAnswer = 0;
@@ -59,11 +62,8 @@ document.addEventListener('DOMContentLoaded', function () {
 /**
  * Get data from the quizQuestion constant and add to the DOM
  */
-function loadQuiz() {
-  
-
-  start.style.display = 'none'; // Hide the starter content
-  
+function loadQuiz() {  
+  start.style.display = 'none'; // Hide the starter content  
   quiz.style.display = 'block'; // Show the game
   
   document.getElementById('question_number').innerText = currentQuestion + 1; // Show how many questions are left
@@ -84,22 +84,16 @@ checkAnswer();
  * Check if the answer is correct and atulize the score
  */
 function checkAnswer() {
-
-  const options = document.getElementsByClassName(' quiz__option');
+  const options = document.querySelectorAll('.quiz__option');  
 
   for (let option of options) {
     option.addEventListener('click', function () {
       let answer = this.getAttribute('id');
-      console.log(answer);
-
       if (answer === quizQuestion[currentQuestion].correct) {
-        console.log('correct');
-        document.getElementById('right-answer').innerText = ++correctAnswer;
-        nextQuestion();
-                
+        rightAnswer.innerText = ++correctAnswer;
+        nextQuestion();                
       } else {
-        console.log('wrong choice');
-        document.getElementById('wrong-answer').innerText = ++incorrectAnswer;
+        wrongAnswer.innerText = ++incorrectAnswer;
         nextQuestion();
       }      
     });        
@@ -110,12 +104,10 @@ function checkAnswer() {
  * Go to the next question and show the results at the end of the game with a option to play again
  */
 function nextQuestion() {
-
   currentQuestion++;
 
   if (currentQuestion < quizQuestion.length) {
     loadQuiz();
-
   } else {   
     quiz.style.display = "none"; // Hide the quiz content     
     displayRanking();    
@@ -123,22 +115,32 @@ function nextQuestion() {
 }
 
 /**
- * Display results and ranking at the end of the game with a button to play again
+ * Display a ranking at the end of the game and buttons to play again with the same or a new username
  */
 function displayRanking() {
+  rankingBox.style.display = "block";    
 
-  rankingBox.style.display = "block";
+  addNewScore();  
+
+  const congrats = document.getElementById('congrats');
+
+
+  document.getElementById('correct-answer').innerText = correctAnswer;
+  document.getElementById('total').innerText = quizQuestion.length;
 
   const playAgainBtn = document.getElementById('play-again');
   playAgainBtn.addEventListener('click', playAgain);
 
   const playAgainNewUserBtn = document.getElementById('play-again-friend');
   playAgainNewUserBtn.addEventListener('click', playNewUser);
+}
 
-  const username = document.getElementById('username').value;
-
+/**
+ * Add new score to the ranking list
+ */
+function addNewScore() {
   const newUser = document.createElement('li');
-  newUser.innerHTML = username;
+  newUser.innerHTML = username.value;
   
   const newScore = document.createElement('span');
   newScore.innerHTML = correctAnswer;  
@@ -146,30 +148,39 @@ function displayRanking() {
   newUser.appendChild(newScore);
 
   const ranking = document.getElementById('ranking-list');
-
   ranking.appendChild(newUser);
-
 }
 
+/**
+ * Restart the game and give a option to create a new username
+ */
 function playNewUser() {
-  start.style.display = "block"; 
-  quiz.style.display = "none";
+  start.style.display = 'block'; 
+  quiz.style.display = 'none';
   rankingBox.style.display = 'none';
 
-  username.value = "";
-
-  currentQuestion = 0;
-  correctAnswer = 0;
-  incorrectAnswer = 0;
+  username.value = '';
+  restartValues();  
 }
 
+/**
+ * Restart the game with the same username
+ */
 function playAgain() {
-
   rankingBox.style.display = 'none';
+
+  restartValues();
+  loadQuiz();
+}
+
+/**
+ * Back the results to zero
+ */
+function restartValues() {
+  rightAnswer.innerText = '0';
+  wrongAnswer.innerText = '0';
 
   currentQuestion = 0;
   correctAnswer = 0;
   incorrectAnswer = 0;
-
-  loadQuiz();
 }
