@@ -42,8 +42,10 @@ const quizQuestion = [
   },
 ];
 
-let start = document.getElementById('start');
-let quiz = document.getElementById('quiz');
+const start = document.getElementById('start');
+const quiz = document.getElementById('quiz');
+const rankingBox = document.getElementById('ranking-box');
+
 let currentQuestion = 0;
 let correctAnswer = 0;
 let incorrectAnswer = 0;
@@ -58,9 +60,11 @@ document.addEventListener('DOMContentLoaded', function () {
  * Get data from the quizQuestion constant and add to the DOM
  */
 function loadQuiz() {
+  
 
-  start.style.display = "none"; // Hide the starter content
-  quiz.style.display = "block"; // Show the game
+  start.style.display = 'none'; // Hide the starter content
+  
+  quiz.style.display = 'block'; // Show the game
   
   document.getElementById('question_number').innerText = currentQuestion + 1; // Show how many questions are left
   document.getElementById('total_question').innerText = quizQuestion.length; // Show how many questions the quiz have
@@ -123,7 +127,6 @@ function nextQuestion() {
  */
 function displayRanking() {
 
-  const rankingBox = document.getElementById('ranking-box');
   rankingBox.style.display = "block";
 
   const playAgainBtn = document.getElementById('play-again');
@@ -151,6 +154,7 @@ function displayRanking() {
 function playNewUser() {
   start.style.display = "block"; 
   quiz.style.display = "none";
+  rankingBox.style.display = 'none';
 
   username.value = "";
 
@@ -160,6 +164,9 @@ function playNewUser() {
 }
 
 function playAgain() {
+
+  rankingBox.style.display = 'none';
+
   currentQuestion = 0;
   correctAnswer = 0;
   incorrectAnswer = 0;
