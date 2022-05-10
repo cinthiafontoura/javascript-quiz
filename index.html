@@ -18,10 +18,13 @@
         <!-- To get a username before start the game -->
         <div id="start">
           <h2>Are you ready?</h2>
-          <label for="username">Insert your name to start the game</label>
-          <br>
-          <input type="text" id="username" placeholder="username">          
-          <button class="btn btn--full" id="start-game">Start</button>
+          <form action="" id="new-user">
+            <label for="username">Insert your name to start the game</label>
+            <br>
+            <input type="text" id="username" name="username" placeholder="username" required>          
+            <button class="btn btn--full" type="submit">Start</button>
+          </form>
+          
         </div>
 
         <!-- Quiz game structure to be manipulate by JavaScript -->

@@ -53,10 +53,17 @@ let currentQuestion = 0;
 let correctAnswer = 0;
 let incorrectAnswer = 0;
 
-// Wait the content load before start the game
+/**
+ * Wait the content load before start the game and get the username
+ */
 document.addEventListener('DOMContentLoaded', function () {
-  let startBtn = document.getElementById('start-game');
-  startBtn.addEventListener('click', loadQuiz);
+
+  const form = document.getElementById('new-user');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    loadQuiz();
+  })
 });  
 
 /**
