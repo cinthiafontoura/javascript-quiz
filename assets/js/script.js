@@ -62,8 +62,9 @@ document.addEventListener('DOMContentLoaded', function () {
   form.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    if (username.value === " ") {
-      const message = document.getElementById('message');
+    const message = document.getElementById('message');
+
+    if (username.value === " ") {      
       message.innerText = 'Enter a valid username';
       message.setAttribute('class', 'message');
     } else {
