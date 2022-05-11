@@ -29,12 +29,26 @@
         <!-- Quiz game structure to be manipulate by JavaScript -->
         <div id="quiz">
           <div class="quiz__header">
-            <p id="progress" class="quiz__progress">Question <span id="question_number">1</span> of <span id="total_question">1</span></p>
-            <div class="progress__bar">
-              <div id="progress__bar--full"></div>
+            <div>
+              <p id="progress" class="quiz__progress">
+                Question 
+                <span id="question_number">1</span> 
+                of 
+                <span id="total_question">1</span></p>
+              <div class="progress__bar">
+                <div id="progress__bar--full"></div>
+              </div>
             </div>
-            <h2 id="quiz__question" class="quiz__question">Am I a question?</h2>
+            <div>
+              <p class="quiz__score">
+                Score
+              </p>
+              <p class="score__points" id="score_points">
+                0
+              </p>
+            </div>
           </div>
+          <h2 id="quiz__question" class="quiz__question">Am I a question?</h2>
           <div class="quiz__options">
             <button class="btn quiz__option" id="a">
             a. <span id="a__option">Option A</span>

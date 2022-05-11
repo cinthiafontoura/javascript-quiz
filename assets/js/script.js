@@ -53,6 +53,9 @@ let currentQuestion = 0;
 let correctAnswer = 0;
 let incorrectAnswer = 0;
 
+let score = 0;
+const SCORE_POINTS = 100;
+
 /**
  * Wait the content load before start the game and get the username
  */
@@ -80,14 +83,13 @@ document.addEventListener('DOMContentLoaded', function () {
  */
 function loadQuiz() {  
   start.style.display = 'none'; // Hide the starter content  
-  quiz.style.display = 'block'; // Show the game
+  quiz.style.display = 'block'; // Show the game  
   
-  // Show how many questions are left
-  const questionCounter = document.getElementById('question_number').innerText = currentQuestion + 1;
-  console.log(questionCounter)
-  // Show how many questions the quiz have
-  const totalQuestions = document.getElementById('total_question').innerText = quizQuestion.length; 
-  console.log(totalQuestions)
+  const questionCounter = currentQuestion + 1;
+  const totalQuestions = quizQuestion.length;  
+
+  const progress = document.getElementById('progress');
+  progress.innerHTML = `Question ${questionCounter} of ${totalQuestions}`;
 
   const progressBarFull = document.querySelector('#progress__bar--full');
   progressBarFull.style.width = `${(questionCounter / totalQuestions) * 100}%`;
@@ -114,6 +116,7 @@ function checkAnswer() {
       let answer = this.getAttribute('id');
       if (answer === quizQuestion[currentQuestion].correct) {
         rightAnswer.innerText = ++correctAnswer;
+        incrementScore(SCORE_POINTS);
         nextQuestion();                
       } else {
         wrongAnswer.innerText = ++incorrectAnswer;
@@ -121,6 +124,15 @@ function checkAnswer() {
       }      
     });        
   }
+}
+
+/**
+ * Increment the score points by 100 when the question is correct
+ */
+function incrementScore(num) {
+  const scorePoints = document.getElementById('score_points');
+  score +=num;
+  scorePoints.innerText = score;
 }
 
 /**
@@ -163,7 +175,7 @@ function addNewScore() {
   newUser.innerHTML = username.value;
   
   const newScore = document.createElement('span');
-  newScore.innerHTML = correctAnswer;  
+  newScore.innerHTML = score;  
 
   newUser.appendChild(newScore);
 

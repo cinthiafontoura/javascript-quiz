@@ -117,7 +117,9 @@ input[type="text"]:hover {
 }
 
 .quiz__header {
-  padding: 10px 0;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .quiz__progress {
@@ -127,12 +129,24 @@ input[type="text"]:hover {
 }
 
 .progress__bar {
-  width: 180px;
+  width: 170px;
   height: 25px;
   border: 2px solid var(--color__primary);
   margin: 10px 0;
   border-radius: 50px;
   overflow: hidden;
+}
+
+.quiz__score {
+  text-align: center;
+  font-size: 20px;
+}
+
+.score__points {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 500;
+  color: var(--color__primary);
 }
 
 .quiz__question {
