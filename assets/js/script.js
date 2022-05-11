@@ -181,16 +181,16 @@ function rankingMessage() {
     
     case 100:
       rankingTitle = 'At least you tried';
-      rankingScore = `<iframe src="https://giphy.com/embed/myuLckXB7OjfGw1gSb" width="240" height="450" frameBorder="0"></iframe>`;
+      rankingScore = `<iframe src="https://giphy.com/embed/HnB6s6oiWvW2Q" width="240" height="134" frameBorder="0"></iframe>`;
       break;
   
     case 200:
-      rankingTitle = 'Keep tring and one day you will get there!';
+      rankingTitle = 'Keep trying, and one day you will get there!';
       rankingScore = `<iframe src="https://giphy.com/embed/Jk4ZT6R0OEUoM" width="240" height="213" frameBorder="0"></iframe>`;
       break;
 
     case 300:
-      rankingTitle = 'I know JavaScript has its triks';
+      rankingTitle = 'I know JavaScript has its tricks';
       rankingScore = `<iframe src="https://giphy.com/embed/nfLpqTrNPpqcE" width="240" height="190" frameBorder="0" ></iframe>`;
       break;
 
@@ -200,7 +200,7 @@ function rankingMessage() {
       break;
 
     case 500:
-      rankingTitle = 'WOW! You born to do it';
+      rankingTitle = 'WOW! You\'re born to do it.';
       rankingScore = `<iframe src="https://giphy.com/embed/XE8iJs1sT7xTM5lafa" width="240" height="240" frameBorder="0"></iframe>`;
       break;
   
