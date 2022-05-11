@@ -48,6 +48,7 @@ const quiz = document.getElementById('quiz');
 const rankingBox = document.getElementById('ranking-box');
 const rightAnswer = document.getElementById('right-answer');
 const wrongAnswer = document.getElementById('wrong-answer');
+const scorePoints = document.getElementById('score_points');
 
 let currentQuestion = 0;
 let correctAnswer = 0;
@@ -130,7 +131,7 @@ function checkAnswer() {
  * Increment the score points by 100 when the question is correct
  */
 function incrementScore(num) {
-  const scorePoints = document.getElementById('score_points');
+  
   score +=num;
   scorePoints.innerText = score;
 }
@@ -155,16 +156,61 @@ function nextQuestion() {
 function displayRanking() {
   rankingBox.style.display = "block";    
 
+  rankingMessage();
   addNewScore();  
-
-  document.getElementById('correct-answer').innerText = correctAnswer;
-  document.getElementById('total').innerText = quizQuestion.length;
-
+  
   const playAgainBtn = document.getElementById('play-again');
   playAgainBtn.addEventListener('click', playAgain);
 
   const playAgainNewUserBtn = document.getElementById('play-again-friend');
   playAgainNewUserBtn.addEventListener('click', playNewUser);
+}
+
+/**
+ * A motivational message and a gif according to the result 
+ */
+function rankingMessage() {
+  let rankingTitle; 
+  let rankingScore;   
+    
+  switch (score) {
+    case 0:
+      rankingTitle = 'You are not even close!';
+      rankingScore = `<iframe src="https://giphy.com/embed/LYd7VuYqXokv20CaEG" width="242" height="288" frameBorder="0"></iframe>`;
+      break;
+    
+    case 100:
+      rankingTitle = 'At least you tried';
+      rankingScore = `<iframe src="https://giphy.com/embed/myuLckXB7OjfGw1gSb" width="240" height="450" frameBorder="0"></iframe>`;
+      break;
+  
+    case 200:
+      rankingTitle = 'Keep tring and one day you will get there!';
+      rankingScore = `<iframe src="https://giphy.com/embed/Jk4ZT6R0OEUoM" width="240" height="213" frameBorder="0"></iframe>`;
+      break;
+
+    case 300:
+      rankingTitle = 'I know JavaScript has its triks';
+      rankingScore = `<iframe src="https://giphy.com/embed/nfLpqTrNPpqcE" width="240" height="190" frameBorder="0" ></iframe>`;
+      break;
+
+    case 400:
+      rankingTitle = 'This close!';
+      rankingScore = `<iframe src="https://giphy.com/embed/yoOotVRp4JMxVTEgDy" width="240" height="135" frameBorder="0" ></iframe>`;
+      break;
+
+    case 500:
+      rankingTitle = 'WOW! You born to do it';
+      rankingScore = `<iframe src="https://giphy.com/embed/XE8iJs1sT7xTM5lafa" width="240" height="240" frameBorder="0"></iframe>`;
+      break;
+  
+    default:
+      rankingTitle = 'Your score';
+      rankingScore = score;
+  }
+
+  document.getElementById('ranking-title').innerHTML = rankingTitle;
+  document.getElementById('ranking-score').innerHTML = rankingScore; 
 }
 
 /**
@@ -211,7 +257,9 @@ function playAgain() {
 function restartValues() {
   rightAnswer.innerText = '0';
   wrongAnswer.innerText = '0';
+  scorePoints.innerText = '0';
 
+  score = 0;
   currentQuestion = 0;
   correctAnswer = 0;
   incorrectAnswer = 0;
