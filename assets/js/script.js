@@ -205,7 +205,7 @@ function rankingMessage() {
       break;
   
     default:
-      rankingTitle = 'Your score';
+      rankingTitle = 'Your Score';
       rankingScore = score;
   }
 
