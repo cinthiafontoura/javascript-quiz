@@ -71,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
       message.innerText = 'Enter a username to start the game';
       message.removeAttribute('class', 'message');
       loadQuiz();
-      console.log(username.value)
     }    
   })  
 });  
@@ -83,9 +82,16 @@ function loadQuiz() {
   start.style.display = 'none'; // Hide the starter content  
   quiz.style.display = 'block'; // Show the game
   
-  document.getElementById('question_number').innerText = currentQuestion + 1; // Show how many questions are left
-  document.getElementById('total_question').innerText = quizQuestion.length; // Show how many questions the quiz have
-  
+  // Show how many questions are left
+  const questionCounter = document.getElementById('question_number').innerText = currentQuestion + 1;
+  console.log(questionCounter)
+  // Show how many questions the quiz have
+  const totalQuestions = document.getElementById('total_question').innerText = quizQuestion.length; 
+  console.log(totalQuestions)
+
+  const progressBarFull = document.querySelector('#progress__bar--full');
+  progressBarFull.style.width = `${(questionCounter / totalQuestions) * 100}%`;
+
   const currentQuestionData = quizQuestion[currentQuestion];
 
   document.getElementById('quiz__question').innerText = currentQuestionData.question;
@@ -138,9 +144,6 @@ function displayRanking() {
   rankingBox.style.display = "block";    
 
   addNewScore();  
-
-  const congrats = document.getElementById('congrats');
-
 
   document.getElementById('correct-answer').innerText = correctAnswer;
   document.getElementById('total').innerText = quizQuestion.length;

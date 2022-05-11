@@ -126,6 +126,15 @@ input[type="text"]:hover {
   text-align: left;
 }
 
+.progress__bar {
+  width: 180px;
+  height: 25px;
+  border: 2px solid var(--color__primary);
+  margin: 10px 0;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
 .quiz__question {
   font-size: 25px;
   padding: 15px 0;
@@ -217,4 +226,11 @@ input[type="text"]:hover {
   color: red;
   font-size: 20px;
   font-weight: 600;
+}
+
+#progress__bar--full {
+  border-radius: 50px 0 0 50px;
+  height: 100%;
+  background: var(--color__primary);
+  width: 0%;
 }
