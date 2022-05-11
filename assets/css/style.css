@@ -212,3 +212,9 @@ input[type="text"]:hover {
 #ranking-box {
   display: none;
 }
+
+.message {
+  color: red;
+  font-size: 20px;
+  font-weight: 600;
+}

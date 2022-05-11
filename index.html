@@ -19,10 +19,9 @@
         <div id="start">
           <h2>Are you ready?</h2>
           <form action="" id="new-user">
-            <label for="username">Insert your name to start the game</label>
-            <br>
-            <input type="text" id="username" name="username" placeholder="username" required>          
-            <button class="btn btn--full" type="submit">Start</button>
+            <label id="message" for="username">Enter a username to start the game</label>
+            <input type="text" id="username" name="username" placeholder="username" maxlength="15" required>          
+            <button class="btn btn--full" type="submit" id="start-game">Start</button>
           </form>
           
         </div>

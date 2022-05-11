@@ -57,13 +57,22 @@ let incorrectAnswer = 0;
  * Wait the content load before start the game and get the username
  */
 document.addEventListener('DOMContentLoaded', function () {
-
   const form = document.getElementById('new-user');
-
+  
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    loadQuiz();
-  })
+
+    if (username.value === " ") {
+      const message = document.getElementById('message');
+      message.innerText = 'Enter a valid username';
+      message.setAttribute('class', 'message');
+    } else {
+      message.innerText = 'Enter a username to start the game';
+      message.removeAttribute('class', 'message');
+      loadQuiz();
+      console.log(username.value)
+    }    
+  })  
 });  
 
 /**
