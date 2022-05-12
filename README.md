@@ -1,108 +1,101 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# JavaScript Quiz
 
-Welcome USER_NAME,
+The JavaScript Quiz is a browser-based quiz game constructed with JavaScript, CSS3 and HTML5. It allows the user to answer five questions and obtain their score at the end of the quiz. The game is targeted toward people who are interested in JavaScript programming language.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+The live website can be found at [JavaScript Quiz](https://cinthiafontoura.github.io/javascript-quiz/).
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![responsive](https://user-images.githubusercontent.com/80278757/168018678-4c4c1df1-c86a-432d-905e-1bd468ad7155.png)
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Features
 
-`python3 -m http.server`
+### Header Section
 
-A blue button should appear to click: _Make Public_,
+The header contains the game name on purple colour and grey background.
 
-Another blue button should appear to click: _Open Browser_.
+![header](https://user-images.githubusercontent.com/80278757/168018693-882b11ee-2950-472e-a4f6-e41b4f73f3d3.png)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Start Section
 
-A blue button should appear to click: _Make Public_,
+The start section has an input asking for a username before starting the quiz game. The input requires a text entry, and in case the user enters a space, a message will ask them to enter a valid username.
 
-Another blue button should appear to click: _Open Browser_.
+![start](https://user-images.githubusercontent.com/80278757/168018684-99a6d80c-2318-419f-b519-0293b5906b6a.png)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Quiz Game Section
 
-To log into the Heroku toolbelt CLI:
+- The game header contains a progress bar with the caption to show the player how many questions were answered and how many questions the quiz has in total and the total points earned.
+- All five questions are about JavaScript language and have four options of answers with only one correct option.
+- The player has status feedback in the game footer showing how many questions they get right or wrong.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+![quiz](https://user-images.githubusercontent.com/80278757/168018701-8c52504a-1924-4237-9531-3c69c1d2c0b2.png)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Scores Section
 
-------
+- A score section displays a motivational phrase and a gif that changes according to the user score, the latest scores with the username captured on the homepage and the total punctuation. When the quiz is played more than once, the new score is added at the end of the list.
+- The section also has buttons that give the option to play again using the same username or play as a new player.
 
-## Release History
+![latestscores](https://user-images.githubusercontent.com/80278757/168018694-efe33ac5-9def-4f77-a66f-4d9483a05292.png)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Footer Section
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+The footer contains a credit paragraph linked to my portfolio that opens in a new tab.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+![footer](https://user-images.githubusercontent.com/80278757/168018691-899106eb-b0e5-4221-973e-c0b010d7177c.png)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## UX/UI
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+- A simple layout, with purple and grey as colours, was chosen to give a good contrast.
+- No images in the background to keep it clean and ensure that it never distracts the user.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## Testing
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+* I've tested that this page works in Chrome and Firefox (mobile and desktop versions).
+* I've confirmed that this project is responsive on all screen sizes using dev tools.
+* I confirmed by testing with users that the text of all sections is readable and easy to understand.
+* I've confirmed that the input requires entry, and the submit button works.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+![startvalidation](https://user-images.githubusercontent.com/80278757/168018688-479ae766-9944-4a1c-8657-2f14916922d6.png)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Validator Testing
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+  * **HTML** 
+    - No errors were found when passing throught official [W3C Validator](https://validator.w3.org/#validate_by_uri).
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+  * **CSS**
+    - No errors were returned when passing through the [Jigsaw](https://jigsaw.w3.org/css-validator/#validate_by_uri).
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+  * **JavaScript**
+    - No errors were returned when passing through the [JSHint](https://jshint.com/).
+  
+  * **Accessibility**
+    - I confirmed that the colours have enough contrast, and the fonts chosen are easy to read, running it through Lighthouse in Chrome DevTools.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+![lighthouse](https://user-images.githubusercontent.com/80278757/168018699-a5a002ab-77ca-432d-8152-ea15806d8e67.png)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
-------
+## Deployment
 
-## FAQ about the uptime script
+Website deployed to GitHub Pages. The steps to deploy are as follows:
+   - On the project page, click on **Settings**
+   - Choose **Pages** on left menu
+   - In the **source** section, choose the branch that you would like to deploy (e.g. main)
+   - Click on the **save** button, and after a few seconds, you will have access to the URL of the deployed site.
+ 
+The live website can be found here [JavaScript Quiz](https://cinthiafontoura.github.io/javascript-quiz/).
 
-**Why have you added this script?**
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## Futures improvements
 
-**How will this affect me?**
+- Display the latest score in decrescent order.
+- Change the colour of the selected answer to notify if it is right or wrong.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+## Credits
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+* Support of documentation in [W3schools](https://www.w3schools.com/)
+* Favicon generated on [Favicon](https://favicon.io/)
+* Progress bar and score incremented using code by [Brian Design](https://www.youtube.com/watch?v=f4fB9Xg2JEY)
+* Links to the gifs in the score section by [GIPHY](https://giphy.com/)
+* Images for the README resized using Adobe Photoshop.
+* Responsive image by [Am I Responsive](https://ui.dev/amiresponsive) screenshot
