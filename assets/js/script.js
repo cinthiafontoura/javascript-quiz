@@ -89,11 +89,11 @@ function loadQuiz() {
   const questionCounter = currentQuestion + 1;
   const totalQuestions = quizQuestion.length;  
 
-  const progress = document.getElementById('progress');
-  progress.innerHTML = `Question ${questionCounter} of ${totalQuestions}`;
+  const progress = document.getElementById('progress'); 
+  progress.innerHTML = `Question ${questionCounter} of ${totalQuestions}`; //Code from Brian Design tutorial
 
-  const progressBarFull = document.querySelector('#progress__bar--full');
-  progressBarFull.style.width = `${(questionCounter / totalQuestions) * 100}%`;
+  const progressBarFull = document.querySelector('#progress__bar--full'); 
+  progressBarFull.style.width = `${(questionCounter / totalQuestions) * 100}%`; //Code from Brian Design tutorial
 
   const currentQuestionData = quizQuestion[currentQuestion];
 
@@ -117,7 +117,7 @@ function checkAnswer() {
       let answer = this.getAttribute('id');
       if (answer === quizQuestion[currentQuestion].correct) {
         rightAnswer.innerText = ++correctAnswer;
-        incrementScore(SCORE_POINTS);
+        incrementScore(SCORE_POINTS); 
         nextQuestion();                
       } else {
         wrongAnswer.innerText = ++incorrectAnswer;
@@ -130,8 +130,8 @@ function checkAnswer() {
 /**
  * Increment the score points by 100 when the question is correct
  */
+//Code from Brian Design tutorial
 function incrementScore(num) {
-  
   score +=num;
   scorePoints.innerText = score;
 }
